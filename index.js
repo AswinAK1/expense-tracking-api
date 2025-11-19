@@ -5,6 +5,10 @@ import { connectDB } from './config/Db.js';
 import cors from 'cors';
 import authRouter from './routes/authRoute.js'
 import cookieParser from 'cookie-parser';
+import categoryRoutes from './routes/categoryRoutes.js'
+import expenseRoutes from './routes/expenseRoutes.js'
+import summaryRoutes from './routes/summaryRoutes.js'
+
 
 
 dotenv.config();
@@ -32,6 +36,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use('/api/auth',authRouter)
+app.use("/api/categories", categoryRoutes);
+app.use("/api/expenses", expenseRoutes);
+app.use("/api/summary", summaryRoutes);
 
 // Start server
 app.listen(PORT, () => {
