@@ -24,7 +24,10 @@ app.use(express.json());
 
 // Cors connection
 app.use(cors({
-  origin: "https://expense-tracking-web-1.onrender.com",
+  origin: [
+    "https://expense-tracking-web-1.onrender.com",
+    "http://localhost:5173",
+  ],
   methods: "GET,POST,PUT,DELETE,PATCH",
   credentials: true
 }));
