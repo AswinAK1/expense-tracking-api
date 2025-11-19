@@ -27,7 +27,7 @@ export default async function protectRoute(req, res, next) {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
-    req.user = { id: decoded.userId };
+    req.user = { userId: decoded.userId };
 
     next();
   } catch (err) {
