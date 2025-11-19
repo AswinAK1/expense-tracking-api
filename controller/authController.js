@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../model/User.js";
 import sendOtpMail from "../middleware/sendOtpMail.js";
