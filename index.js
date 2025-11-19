@@ -24,10 +24,11 @@ app.use(express.json());
 
 // Cors connection
 app.use(cors({
-  origin: "*",
+  origin: "https://expense-tracking-web-1.onrender.com",
   methods: "GET,POST,PUT,DELETE,PATCH",
   credentials: true
 }));
+
 
 
 // middleware
