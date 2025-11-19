@@ -1,5 +1,5 @@
-import Expense from "../models/Expense.js";
-import Category from "../models/Category.js";
+import Expense from "../model/Expense.js";
+import Category from "../model/Category.js";
 
 export const addExpense = async (userId, data) => {
   const category = await Category.findById(data.categoryId);

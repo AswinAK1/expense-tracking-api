@@ -1,6 +1,6 @@
 import express from "express";
 import protectRoute from "../middleware/protectRoute.js";
-import { create, list } from "../controllers/categoryController.js";
+import { create, list } from "../controller/categoryController.js";
 
 const router = express.Router();
 

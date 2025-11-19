@@ -1,5 +1,5 @@
-import Category from "../models/Category.js";
-import Expense from "../models/Expense.js";
+import Category from "../model/Category.js";
+import Expense from "../model/Expense.js";
 
 export const getMonthlySummary = async (userId, month, year) => {
   const categories = await Category.find({ userId });
