@@ -27,8 +27,6 @@ export const getMonthlySummary = async (userId, month, year) => {
     }
   ]);
 
-  console.log(expenses);
-
   return categories.map(cat => {
     const exp = expenses.find(e => e._id?.toString() === cat._id.toString());
 
