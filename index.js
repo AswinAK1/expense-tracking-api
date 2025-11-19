@@ -13,7 +13,8 @@ import summaryRoutes from './routes/summaryRoutes.js'
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000;
+
 
 // db connection
 connectDB();
@@ -23,9 +24,11 @@ app.use(express.json());
 
 // Cors connection
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: "*",
+  methods: "GET,POST,PUT,DELETE,PATCH",
   credentials: true
 }));
+
 
 // middleware
 app.use(express.json())
@@ -41,8 +44,9 @@ app.use("/api/expenses", expenseRoutes);
 app.use("/api/summary", summaryRoutes);
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`server is running on port http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
 
 export default app;
