@@ -10,6 +10,6 @@ export const create = async (req, res) => {
 };
 
 export const list = async (req, res) => {
-  const categories = await categoryService.getCategories(req.user.userId);
+  const categories = await categoryService.getCategories(req.user.id);
   res.json(categories);
 };

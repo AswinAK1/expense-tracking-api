@@ -10,8 +10,13 @@ export const getMonthlySummary = async (userId, month, year) => {
   const expenses = await Expense.aggregate([
     {
       $match: {
-        userId,
-        date: { $gte: start, $lte: end }
+        $expr: {
+          $and: [
+            { $eq: [{ $toString: "$userId" }, userId.toString()] },
+            { $gte: ["$date", start] },
+            { $lte: ["$date", end] }
+          ]
+        }
       }
     },
     {
@@ -22,14 +27,16 @@ export const getMonthlySummary = async (userId, month, year) => {
     }
   ]);
 
+  console.log(expenses);
+
   return categories.map(cat => {
-    const exp = expenses.find(e => e._id.toString() === cat._id.toString());
+    const exp = expenses.find(e => e._id?.toString() === cat._id.toString());
 
     return {
       category: cat.name,
       limit: cat.monthlyLimit,
       spent: exp ? exp.spent : 0,
-      remaining: cat.monthlyLimit - (exp ? exp.spent : 0),
+      remaining: cat.monthlyLimit - (exp?.spent ?? 0),
       status: (exp?.spent ?? 0) > cat.monthlyLimit ? "over" : "within"
     };
   });

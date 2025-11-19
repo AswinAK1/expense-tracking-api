@@ -4,7 +4,7 @@ export const getSummary = async (req, res) => {
   const { month, year } = req.query;
 
   const summary = await summaryService.getMonthlySummary(
-    req.user.userId,
+    req.user.id,
     Number(month),
     Number(year)
   );
