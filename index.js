@@ -48,9 +48,9 @@ app.use("/api/expenses", expenseRoutes);
 app.use("/api/summary", summaryRoutes);
 
 // Start server
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, "0.0.0.0", () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 
 
 export default app;
